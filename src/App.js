@@ -43,26 +43,24 @@ class App extends Component {
 	  }
 
 	groupActivation = (channel) => {
-		console.log(channel)
 		var newGroups = this.state.groups.slice();
 		newGroups.map((group,i)=>{
-			if(group.name == channel){
+			if(group.name === channel){
 				group.active = true;
-				this.setState
 			} else group.active = false;
-
+			return null
 		})
 		this.setState({groups:newGroups})
 	}
 
   render() {
-	  console.log(store.getState())
+
     return (
 		<Provider store={store}>
 	      <div className="App">
 				<Navigation />
 				<CreateGroupPopup />
-				<GroupBar groups={this.state.groups} groupActivation={this.groupActivation}/>
+				<GroupBar/>
 		  	 <div id="page">
 				<ChannelBar groups={this.state.groups} />
 				<ChatBox/>

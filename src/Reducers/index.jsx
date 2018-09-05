@@ -1,15 +1,34 @@
 import { combineReducers } from 'redux'
-import { VisibilityFilters } from '../Actions'
+// import { VisibilityFilters } from '../Actions'
 
+const groupList = [{
+	name:"Malden City Group",
+	channels:["Announcements","Book Club", "Events", "Library"],
+	active:true
+},{
+	name:"PAX Conference",
+	channels:["Announcements", "Questions"],
+	active:false
+},{
+	name:"Boston Globe Group",
+	channels: ["Announcments", "Sports Forum", "Metro", "Political Forum", "Tips"],
+	active:false
+},{
+	name: "Admiral's Hill",
+	channels: ["Announcments", "Events"],
+	active:false
+},{
+	name: "ISGL",
+	channels: ["Announcemnts","Events","Discussions", "Youth"],
+	active:false
+}];
 
 const initialState = {
-  visibilityFilter: VisibilityFilters.SHOW_ALL,
-  todos: [],
-  test:'test1'
+  groups: groupList
 }
 
-function todoApp(state = initialState, action) {
-	console.log(state)
+function groups(state = initialState, action) {
+	// console.log(state)
   // For now, don't handle any actions
   // and just return the state given to us.
   return state
@@ -17,5 +36,5 @@ function todoApp(state = initialState, action) {
 
 
 export default combineReducers({
-  todoApp
+  groups
 })

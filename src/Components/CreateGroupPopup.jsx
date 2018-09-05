@@ -16,11 +16,11 @@ class CreateGroupPopup extends Component {
 						 <form className="form-horizontal" method="POST" action="/channel/new">
 							  <div className="form-group">
 									<p className="label mb-10">Choose a Channel photo (max size: 64x64)</p>
-									<label for="group_photo" className="group-photo-placeholder avatar-placeholder" data-toggle="tooltip" data-title="Upload a channel photo" data-placement="bottom"><img src="/img/placeholder.png" /></label>
+									<label className="group-photo-placeholder avatar-placeholder" data-toggle="tooltip" data-title="Upload a channel photo" data-placement="bottom"><img src="/img/placeholder.png" alt="Place"/></label>
 									<input id="group_photo" className="group-photo" type="file" />
 							  </div>
 							  <div className="form-group">
-									<label for="group_name">Group Name</label>
+									<label>Group Name</label>
 									<input type="text" name="channel_name" id="group_name" className="form-control" />
 							  </div>
 							  <div className="form-group">
