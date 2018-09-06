@@ -25,8 +25,8 @@ class ChannelBar extends Component {
 }
 
 const mapStateToProps = state => {
-  return {
-    reduxState:state
+	return {
+		activeGroup: state.groups[state.activeGroupIndex]
   }
 }
 

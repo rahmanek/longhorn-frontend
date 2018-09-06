@@ -1,6 +1,21 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import { addGroup } from '../Actions'
 
 class CreateGroupPopup extends Component {
+	constructor(props) {
+     super(props);
+     this.state = {groupName: ''};
+
+     this.handleChange = this.handleChange.bind(this);
+   }
+
+
+  handleChange(event){
+	  this.setState({groupName:event.target.value})
+  }
+
+
   render() {
     return (
 		 <div id="create-group" className="modal-block-wrap">
@@ -13,7 +28,7 @@ class CreateGroupPopup extends Component {
 					<div className="modal-block-content">
 						 <span className="modal-close"><i className="fas fa-times"></i></span>
 						 <h3>Create a new Channel</h3>
-						 <form className="form-horizontal" method="POST" action="/channel/new">
+						 <div className="form-horizontal">
 							  <div className="form-group">
 									<p className="label mb-10">Choose a Channel photo (max size: 64x64)</p>
 									<label className="group-photo-placeholder avatar-placeholder" data-toggle="tooltip" data-title="Upload a channel photo" data-placement="bottom"><img src="/img/placeholder.png" alt="Place"/></label>
@@ -21,13 +36,13 @@ class CreateGroupPopup extends Component {
 							  </div>
 							  <div className="form-group">
 									<label>Group Name</label>
-									<input type="text" name="channel_name" id="group_name" className="form-control" />
+									<input type="text" name="channel_name" id="group_name" className="form-control" onChange={this.handleChange}/>
 							  </div>
 							  <div className="form-group">
 									<p className="help-block2 mb-25">By creating a channel, you agree to MiniCord <a data-toggle="modal-custom" data-target="#login" className="clr-primary link-underline">Community Guidelines</a>.</p>
-									<button type="submit" className="btn btn-block btn-radius btn-primary">Create Channel</button>
+									<button className="btn btn-block btn-radius btn-primary" onClick={(e) => this.props.addGroup(this.state.groupName)}>Create Channel</button>
 							  </div>
-						 </form>
+						 </div>
 					</div>
 			  </div>
 		 </div>
@@ -35,4 +50,20 @@ class CreateGroupPopup extends Component {
   }
 }
 
-export default CreateGroupPopup;
+const mapStateToProps = state => {
+  return state;
+}
+
+const mapDispatchToProps = dispatch => {
+	return {
+		addGroup: (name) =>{
+			dispatch(addGroup(name))
+		}
+			// dispatch(addGroup(name))
+ 	}
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(CreateGroupPopup)
