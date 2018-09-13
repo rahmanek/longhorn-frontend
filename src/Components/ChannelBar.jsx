@@ -1,15 +1,30 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 class ChannelBar extends Component {
+
+	constructor(props) {
+		super(props);
+		var activeChannels = []
+		Object.keys(this.props.channels).map((channelId) =>{
+			if(this.props.channels[channelId].groupId === this.props.active.group) activeChannels.push(channelId);
+		})
+
+		this.state = {
+			activeChannels:activeChannels
+		};
+		// this.handleClick = this.handleClick.bind(this);
+	}
+
   render() {
+	  console.log(this)
     return (
 		 <div id="chat-list">
 			  <a href="/users/@me" className="user"><div className="avatar"><img src="/img/placeholder-avatar2.jpg" alt="3"/></div>Ajawak</a>
 			  <ul className="chat-list scroll-hijack">
 				  <li>Channels</li>
 				  {
-					  this.props.groups[0].channels.map((channel, i) =>{
-					  				 return(<li className="text-align-left" key={i}><a href="#3" className="activeChannel">#  {channel}</a></li>)
+					  this.state.activeChannels.map((channelId, i) =>{
+					  				 return(<li className="text-align-left" key={i}><a href="#3" className="activeChannel">#  {this.props.channels[channelId].name}</a></li>)
 					  })
 
 				  }
@@ -25,9 +40,11 @@ class ChannelBar extends Component {
 }
 
 const mapStateToProps = state => {
+
 	return {
-		activeGroup: state.groups[state.activeGroupIndex]
-  }
+		channels:state.channels,
+		active: state.active
+	}
 }
 
 const mapDispatchToProps = dispatch => {
