@@ -2,71 +2,45 @@ import { combineReducers } from 'redux'
 import groupSample from '../Data Samples/groupSample.js'
 import channelSample from '../Data Samples/channelSample.js'
 
+var initialGroupId = Object.keys(groupSample)[0]
+
 const groups = function (state, action) {
+
 	switch (action.type){
-		case "ADD_GROUP":
-			return Object.assign({}, state, {
-				list: (() => {
-					var newList = state.list.slice()
-					newList.push({
-						name:action.name,
-						channels:["General"]
-					})
-					return newList
-				})()
-			})
 		case "CHANGE_GROUP":
 			return Object.assign({}, state, {
-				active: action.active
+				active: action.groupId
 			})
 		default:
-			return groupSample
+			return {
+				list:groupSample,
+				active: initialGroupId
+			}
 	}
 }
 
 const channels = function (state, action) {
-	switch (action.type){
-		case "ADD_GROUP":
-			return Object.assign({}, state, {
-				list: (() => {
-					var newList = state.list.slice()
-					newList.push({
-						name:action.name,
-						channels:["General"]
-					})
-					return newList
-				})()
-			})
-		case "CHANGE_GROUP":
-			return Object.assign({}, state, {
-				active: action.active
-			})
-		default:
-			return channelSample
-	}
-}
 
-const active = function (state, action) {
 	switch (action.type){
-		case "ADD_GROUP":
-			return Object.assign({}, state, {
-				list: (() => {
-					var newList = state.list.slice()
-					newList.push({
-						name:action.name,
-						channels:["General"]
-					})
-					return newList
-				})()
-			})
 		case "CHANGE_GROUP":
+			var channelList = channelSample;
+			var groupChannelList = [];
+			Object.keys(channelList).map(channelId=>{
+				if(channelList[channelId].groupId === action.groupId) groupChannelList.push(channelId)
+			})
 			return Object.assign({}, state, {
-				active: action.active
+				visible: groupChannelList,
 			})
 		default:
-			return {
-				channel:Object.keys(channelSample)[0],
-				group: Object.keys(groupSample)[0]
+			var channelList = channelSample;
+			var groupChannelList = [];
+			Object.keys(channelList).map(channelId=>{
+				if(channelList[channelId].groupId === initialGroupId) groupChannelList.push(channelId)
+			})
+			return{
+				list:channelList,
+				visible:groupChannelList,
+				active:Object.keys(channelSample)[0]
 			}
 	}
 }
@@ -74,6 +48,5 @@ const active = function (state, action) {
 
 export default combineReducers({
   groups,
-  channels,
-  active
+  channels
 })

@@ -1,1 +1,1 @@
-export default{"gr9XyjF/GR1IBp1H6":{"name":"Burlington BBall"},"gGM4YYYkB/eYlTYOx":{"name":"ISGL"},"gx1R0y62y4Rjo4Ic2":{"name":"MIT MSA"},"gPi9UK3pl3BkAy6H2":{"name":"Harvard MSA"},"gPKwAFl5mUcC4ZKGv":{"name":"Admiral's Hill"}}
+export default{"gkVsTGbSXrbFWRbr7":{"name":"MIT MSA"},"gc8R6NB3v4afjJi4P":{"name":"Boston Republicans"},"gXS2b5HM/UB/vvHE0":{"name":"Boating Community Incorporated"},"ghtcAq73iH4o/2oah":{"name":"UMass SASA"},"gSkse12Rzi57MLeg4":{"name":"Cambridge Center for Adult Education"}}
