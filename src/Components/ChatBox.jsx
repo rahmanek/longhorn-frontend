@@ -12,14 +12,14 @@ class ChatBox extends Component {
 			  </div>
 			  <div className="chat-body scroll-hijack">
 							  <div className="chat-message">
-										 <div className="avatar"><img src="/img/placeholder-avatar0.jpg" alt="Avatar"/></div>
-										 <div className="chat-message-content">
-											  <a href="#2" className="chat-message-author">Wiseguy</a>
-											  <span className="chat-message-date">1-3-1</span>
-											  <div className="chat-message-message">
-														 This is a message
-											  </div>
-										 </div>
+									 {/* <div className="avatar"><img src="/img/placeholder-avatar0.jpg" alt="Avatar"/></div> */}
+									 <div className="chat-message-content">
+										  <a href="#2" className="chat-message-author">Wiseguy</a>
+										  <span className="chat-message-date">1-3-1</span>
+										  <div className="chat-message-message">
+													 This is a message
+										  </div>
+									 </div>
 							  </div>
 			  </div>
 			  <div className="chat-footer relative">

@@ -3,10 +3,11 @@ import { connect } from 'react-redux'
 class ChannelBar extends Component {
 
 	render() {
-		var channels = this.props.channels;
+		const groups = this.props.groups
+		const channels = this.props.channels;
 		return (
 			<div id="chat-list">
-				<a href="/users/@me" className="user"><div className="avatar"><img src="/img/placeholder-avatar2.jpg" alt="3"/></div>Ajawak</a>
+				<a href="#4" className="user"><div className="avatar"></div>{groups.list[groups.active].name}</a>
 				<ul className="chat-list scroll-hijack">
 					<li>Channels</li>
 					{
@@ -29,6 +30,7 @@ class ChannelBar extends Component {
 const mapStateToProps = state => {
 
 	return {
+		groups: state.groups,
 		channels:state.channels,
 		active: state.active
 	}
