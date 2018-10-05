@@ -5,6 +5,7 @@ class ChannelBar extends Component {
 	render() {
 		const groups = this.props.groups
 		const channels = this.props.channels;
+		console.log(this.props)
 		return (
 			<div id="chat-list">
 				<a href="#4" className="user"><div className="avatar"></div>{groups.list[groups.active].name}</a>
@@ -12,8 +13,9 @@ class ChannelBar extends Component {
 					<li>Channels</li>
 					{
 						channels.visible.map((channelId, i) =>{
-							console.log(channelId)
-							return(<li className="text-align-left" key={i}><a href="#3" className="activeChannel">#  {channels.list[channelId].name}</a></li>)
+							var channelStyle = "text-align-left";
+							if (channels.active == channelId) channelStyle = channelStyle + " bold";
+							return(<li className={channelStyle} key={i}><a href="#3" onClick={this.props.changeChannel} data-channelid={channelId} className="activeChannel">#  {channels.list[channelId].name}</a></li>)
 						})
 					}
 				</ul>
@@ -31,18 +33,18 @@ const mapStateToProps = state => {
 
 	return {
 		groups: state.groups,
-		channels:state.channels,
-		active: state.active
+		channels:state.channels
 	}
 }
 
 const mapDispatchToProps = dispatch => {
-  return {
-    destroyTodo: () =>
-      dispatch({
-        type: 'DESTROY_TODO'
-      })
-  }
+	return {
+	 	changeChannel: (e) =>
+			dispatch({
+				type: 'CHANGE_CHANNEL',
+	 			channelId: e.target.dataset.channelid
+			})
+   }
 }
 
 export default connect(

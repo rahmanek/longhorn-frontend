@@ -16,10 +16,14 @@ var channels = {}
 var groupList =  Object.keys(groups);
 
 for(var i = 0; i < groupList.length; i++){
+	channels['c' + require('crypto').randomBytes(12).toString('base64')] = {
+		groupId: groupList[i],
+		name: 'general'
+	}
+	var availableChannels = channelNames.slice();
 	for(var j = 0; j <5; j++){
-		var availableChannels = channelNames.slice();
 		channels['c' + require('crypto').randomBytes(12).toString('base64')] = {
-			groupId: groupList[j],
+			groupId: groupList[i],
 			name: availableChannels.splice(Math.floor(Math.random()*availableChannels.length),1)[0]
 		}
 	}

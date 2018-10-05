@@ -2,10 +2,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 class ChatBox extends Component {
   render() {
+	  var channels = this.props.channels;
+// {channels.list[channels.active].name}
     return (
+		<div>
+		 {/* <div id="bg">
+			   <div id="particles-js"></div>
+		  </div> */}
 		 <div id="chat" className="pages">
 			  <div className="page-header clearfix">
-					<span>Test1</span>
+					<span>T2</span>
 					<ul>
 						 <li><a title="Online" href="#1">Online - 1</a></li>
 					</ul>
@@ -14,10 +20,10 @@ class ChatBox extends Component {
 							  <div className="chat-message">
 									 {/* <div className="avatar"><img src="/img/placeholder-avatar0.jpg" alt="Avatar"/></div> */}
 									 <div className="chat-message-content">
-										  <a href="#2" className="chat-message-author">Wiseguy</a>
+										  <a href="#2" className="chat-message-author">Wiseguy2</a>
 										  <span className="chat-message-date">1-3-1</span>
 										  <div className="chat-message-message">
-													 This is a message
+													 This is a messagfsdefgd
 										  </div>
 									 </div>
 							  </div>
@@ -29,14 +35,17 @@ class ChatBox extends Component {
 					</form>
 			  </div>
 		 </div>
+	 </div>
     );
   }
 }
 
 const mapStateToProps = state => {
-  return {
-    reduxState:state
-  }
+
+	return {
+		groups: state.groups,
+		channels:state.channels
+	}
 }
 
 const mapDispatchToProps = dispatch => {

@@ -5,8 +5,6 @@ import { connect } from 'react-redux'
 class GroupBar extends Component {
 
 	render() {
-			console.log(this)
-			// this.props.changeGroup("g32")
 		var groups = this.props.groups
 		return (
 			<div id="sidebar">
@@ -18,7 +16,7 @@ class GroupBar extends Component {
 								var activeGroup = groups.list[groupId];
 								var groupStyle = "";
 								if(groupId === groups.active) groupStyle = "current-server"
-								return (<li key={i}><a href="#changeGroup" className={groupStyle} data-groupId={groupId} onClick={this.props.changeGroup} data-toggle="tooltip" data-placement="right" data-title={activeGroup.name}>{activeGroup.name[0]}</a></li>)
+								return (<li key={i}><a href="#changeGroup" className={groupStyle} data-groupid={groupId} onClick={this.props.changeGroup} data-toggle="tooltip" data-placement="right" data-title={activeGroup.name}>{activeGroup.name[0]}</a></li>)
 							})
 						}
 					<li><a href="#join" className="join-server" data-start="modal-custom" data-target="#create-group" data-toggle="tooltip" data-placement="right" data-title="Join a Group"><i className="fa fa-plus"></i></a></li>

@@ -1,1 +1,1 @@
-export default{"gkVsTGbSXrbFWRbr7":{"name":"MIT MSA"},"gc8R6NB3v4afjJi4P":{"name":"Boston Republicans"},"gXS2b5HM/UB/vvHE0":{"name":"Boating Community Incorporated"},"ghtcAq73iH4o/2oah":{"name":"UMass SASA"},"gSkse12Rzi57MLeg4":{"name":"Cambridge Center for Adult Education"}}
+export default{"gqPhhO3EqCWxGvaA7":{"name":"Boston Civic Enthusiasts"},"g2jXWmFGMokF93GRR":{"name":"MIT MSA"},"gBQTkaMt+WZJf5qyh":{"name":"MIT BSU"},"gxECF+zdnRQPGzj0r":{"name":"Assembly Square Gamers"},"gE4JeQ9j827Eprho5":{"name":"Harvard MSA"}}
