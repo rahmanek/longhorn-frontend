@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 class ChatBox extends Component {
   render() {
-	  var channels = this.props.channels;
-// {channels.list[channels.active].name}
+	var channels = this.props.channels;
+	console.log(channels)
     return (
    		  <div id="chat" className="page">
    				<div className="page-header clearfix">
-   					 <span>Test1</span>
+   					 <span># {channels.list[channels.active].name}</span>
    					 <ul>
    						   <li><a title="Online" href="#">Online - 1</a></li>
    					 </ul>
