@@ -21,16 +21,20 @@ const groups = function (state, action) {
 }
 /***********			CHANNELS			***********/
 const channels = function (state, action) {
+	var channelList = [];
+	var groupChannelList = [];
+	var generalId = null;
 	switch (action.type){
 		case "CHANGE_GROUP":
-			channelList = state.list;
-			var groupChannelList = [];
+			channelList = state.list
 			Object.keys(channelList).map(channelId=>{
 				if(channelList[channelId].groupId === action.groupId) groupChannelList.push(channelId)
+				if(channelList[channelId].name === "general") generalId = channelId
 			})
-			console.log(groupChannelList)
 			return Object.assign({}, state, {
 				visible: groupChannelList,
+				general: generalId,
+				active: generalId
 			})
 		case "CHANGE_CHANNEL":
 
@@ -38,9 +42,8 @@ const channels = function (state, action) {
 				active: action.channelId,
 			})
 		default:
-			var channelList = channelSample;
-			var groupChannelList = [];
-			var generalId = null;
+			channelList = channelSample;
+			groupChannelList = [];
 			Object.keys(channelList).map(channelId=>{
 				if(channelList[channelId].groupId === initialGroupId)
 				{

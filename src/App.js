@@ -8,36 +8,27 @@ import ChatBox from './Components/ChatBox.jsx';
 
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
-import Reducer from './Reducers'
+import Reducer from './Reducers/'
 
 const store = createStore(Reducer)
 
 class App extends Component {
 
-  render() {
-	  var logo = "fd"
-    return (
-		<Provider store={store}>
-	      <div className="App">
-				<Navigation />
-				<CreateGroupPopup />
-				<GroupBar/>
-		  	 <div id="page">
-				<ChannelBar/>
-				<ChatBox/>
-
-		  	 </div>
-	        <header classNameName="App-header">
-	          <img src={logo} classNameName="App-logo" alt="logo" />
-	          <h1 classNameName="App-title">Welcome to React</h1>
-	        </header>
-	        <p classNameName="App-intro">
-	          To get started, edit <code>src/App.js</code> and save to reload.
-	        </p>
-	      </div>
-		</Provider>
-    );
-  }
+	render() {
+		return (
+			<Provider store={store}>
+				<div className="App">
+					<Navigation />
+					<CreateGroupPopup />
+					<GroupBar/>
+					<div id="page">
+						<ChannelBar/>
+						<ChatBox/>
+					</div>
+				</div>
+			</Provider>
+		);
+	}
 }
 
 export default App;

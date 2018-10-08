@@ -10,7 +10,7 @@ class GroupBar extends Component {
 			<div id="sidebar">
 				<ul className="sidebar-menu">
 					<li><a href="#changeGroup" data-toggle="tooltip" data-placement="right" data-title="Home"><i className="fas fa-home"></i></a></li>
-					<li><a href="#changeGroup" data-toggle="tooltip" data-placement="right" data-title="Explore"><i class="far fa-compass fa-lg"></i></a></li>
+					<li><a href="#changeGroup" data-toggle="tooltip" data-placement="right" data-title="Explore"><i className="far fa-compass fa-lg"></i></a></li>
 						{
 							Object.keys(groups.list).map((groupId,i)=>{
 								var activeGroup = groups.list[groupId];

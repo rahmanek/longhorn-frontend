@@ -5,7 +5,6 @@ class ChannelBar extends Component {
 	render() {
 		const groups = this.props.groups
 		const channels = this.props.channels;
-		console.log(this.props)
 		return (
 			<div id="chat-list">
 				<a href="#4" className="user"><div className="avatar"></div>{groups.list[groups.active].name}</a>
@@ -14,7 +13,7 @@ class ChannelBar extends Component {
 					{
 						channels.visible.map((channelId, i) =>{
 							var channelStyle = "text-align-left";
-							if (channels.active == channelId) channelStyle = channelStyle + " bold";
+							if (channels.active === channelId) channelStyle = channelStyle + " bold";
 							return(<li className={channelStyle} key={i}><a href="#3" onClick={this.props.changeChannel} data-channelid={channelId} className="activeChannel">#  {channels.list[channelId].name}</a></li>)
 						})
 					}

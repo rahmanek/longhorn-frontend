@@ -7,3 +7,7 @@
 	font-size: 18px;
 	color: black !important;
 }
+
+.chat-message-content{
+	text-align: left;
+}
